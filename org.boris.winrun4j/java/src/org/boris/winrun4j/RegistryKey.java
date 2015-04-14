@@ -423,10 +423,10 @@ public class RegistryKey
             }
             bos.write(new byte[] { 0, 0 });
             b = bos.toByteArray();
+            Registry.setValueEx(h, name, 0, Registry.REG_MULTI_SZ, b, b.length);
         } catch (IOException e) {
             // Should not happen as it is a byte array
         }
-        Registry.setValueEx(h, name, 0, Registry.REG_MULTI_SZ, b, b.length);
         Registry.closeKey(h);
     }
 
