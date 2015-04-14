@@ -121,6 +121,12 @@ class WRunner extends AbstractVMRunner
             abort(WMessages.WRunner_generateINI_error, e, IStatus.ERROR);
         }
 
+        if (launcher == null) {
+            return;
+        }
+	if (inf == null) {
+            return;
+        }
         String[] cmdLine = new String[] { launcher.getAbsolutePath(), "--WinRun4J:ExecuteINI", //$NON-NLS-1$
                 inf.getAbsolutePath() };
 
