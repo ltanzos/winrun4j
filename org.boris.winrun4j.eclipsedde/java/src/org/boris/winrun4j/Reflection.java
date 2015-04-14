@@ -82,8 +82,10 @@ public class Reflection {
                     if(c == null) break;
                 }
             }
+            if (m == null) {
+                return null;
+            }
             m.setAccessible(true);
-            
             return m.invoke(o, args);
         } catch (Exception e) {
             return null;
